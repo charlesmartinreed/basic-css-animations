@@ -1,42 +1,78 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
 body {
-	background: #333;
+	font-family: 'Helvetica Neue', sans-serif;
+	background-color: #12475F;
+	color: #EEE;
+	line-height: 1.6;
+	text-align: center;
 }
 
 .container {
-	height: 100vh;
-}
-
-.box {
-	background: white;
-	width: 300px;
-	height: 300px;
-	position: relative;
+	max-width: 960px;
 	margin: auto;
-	top: 25%;
-
-	/* with transitions, we can control the morph */
-	/* transition properties have to have an identifiable mid-point */
-
-	/* transition-property: background, border-radius, transform; */
-	transition: all;
-
-	/* different durations for different transition animations */
-	transition-duration: 1s;
-	/* transition-duration: 1s, 2s, 4s; */
-
-	/* different durations for delays, too */
-	/* transition-delay: 2s; */
-	transition-timing-function: linear;
+	padding: 0 30px;
 }
 
-/* transitions require a trigger, like a focus or hover event */
-.box:hover {
-	background: red;
-	border-radius: 50%;
+#showcase {
+	height: 300px;
+}
+
+#showcase h1 {
+	font-size: 50px;
+	line-height: 1.3;
+	position: relative;
+	animation-name: slideDownHeader;
+	animation-duration: 2s;
+	animation-fill-mode: forwards;
+}
+
+#content {
+	position: relative;
+	animation-name: slideRightContent;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
+.btn {
+	display: inline-block;
+	color: #EEE;
+	text-decoration: none;
+	padding: 1rem 2rem;
+	border: 1px solid #EEE;
+	margin-top: 40px;
+	opacity: 0;
+	animation-name: makeBtnVisible;
+	animation-duration: 2s;
+	animation-fill-mode: forwards;
+	/* want this to happen after the other animations are complete, using delay to achieve this */
+	animation-delay: 2s;
+
+	transition-property: transform;
+	transition-duration: 1s;
+}
+
+.btn:hover {
 	transform: rotateY(180deg);
 }
 
-.box:active {
-	/* triggered when we click and hold*/
-	/* background: blue; */
+
+/* KEYFRAME ANIMATIONS */
+@keyframes slideDownHeader {
+	0% { transform: translateY(-100px); }
+	100% { transform: translateY(200px); }
+}
+
+
+@keyframes slideRightContent {
+	0% { transform: translateX(-1000px); }
+	100% { transform: translateX(0px); }
+}
+
+@keyframes makeBtnVisible {
+	0% { opacity: 0; }
+	100% { opacity: 100; }
 }
