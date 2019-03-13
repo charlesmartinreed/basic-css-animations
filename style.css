@@ -1,0 +1,54 @@
+body {
+	background: #333;
+}
+
+.box {
+	background: white;
+	width: 200px;
+	height: 200px;
+	position: relative;
+	margin: 0 auto;
+
+	animation-name: myAnimation;
+	animation-duration: 4s;
+	/* repeat */
+	animation-iteration-count: infinite;
+	/* delay */
+	/* animation-delay: 2s; */
+	/* back and forth */
+	animation-direction: alternate;
+	/* ease-in-out is default */
+	animation-timing-function: linear;
+	/* persist the animation at the end */
+	animation-fill-mode: forwards;
+}
+
+@keyframes myAnimation {
+	/* specify different points during the animation */
+	0% {
+		background-color: white;
+		transform: translate(0px, 0px);
+		border-radius: 0 0 0 0;
+	}
+	25% {
+		background-color: #f6e5e5;
+		transform: translate(150px, 150px);
+		border-radius: 12.5% 12.5% 12.5% 12.5%;
+	}
+	50% {
+		background-color: #e6b2c6;
+		transform: translate(0px, 300px);
+		border-radius: 25% 25% 25% 25%;
+	}
+	75% {
+		background-color: #774181;
+		transform: translate(-150px, 150px);
+		border-radius: 37.5% 37.5% 37.5% 37.5%;
+	}
+	100% {
+		background-color: #352961;
+		transform: translate(0px, 0px);
+		border-radius: 50% 50% 50% 50%;
+	}
+
+}
