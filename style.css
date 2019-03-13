@@ -2,53 +2,41 @@ body {
 	background: #333;
 }
 
-.box {
-	background: white;
-	width: 200px;
-	height: 200px;
-	position: relative;
-	margin: 0 auto;
-
-	animation-name: myAnimation;
-	animation-duration: 4s;
-	/* repeat */
-	animation-iteration-count: infinite;
-	/* delay */
-	/* animation-delay: 2s; */
-	/* back and forth */
-	animation-direction: alternate;
-	/* ease-in-out is default */
-	animation-timing-function: linear;
-	/* persist the animation at the end */
-	animation-fill-mode: forwards;
+.container {
+	height: 100vh;
 }
 
-@keyframes myAnimation {
-	/* specify different points during the animation */
-	0% {
-		background-color: white;
-		transform: translate(0px, 0px);
-		border-radius: 0 0 0 0;
-	}
-	25% {
-		background-color: #f6e5e5;
-		transform: translate(150px, 150px);
-		border-radius: 12.5% 12.5% 12.5% 12.5%;
-	}
-	50% {
-		background-color: #e6b2c6;
-		transform: translate(0px, 300px);
-		border-radius: 25% 25% 25% 25%;
-	}
-	75% {
-		background-color: #774181;
-		transform: translate(-150px, 150px);
-		border-radius: 37.5% 37.5% 37.5% 37.5%;
-	}
-	100% {
-		background-color: #352961;
-		transform: translate(0px, 0px);
-		border-radius: 50% 50% 50% 50%;
-	}
+.box {
+	background: white;
+	width: 300px;
+	height: 300px;
+	position: relative;
+	margin: auto;
+	top: 25%;
 
+	/* with transitions, we can control the morph */
+	/* transition properties have to have an identifiable mid-point */
+
+	/* transition-property: background, border-radius, transform; */
+	transition: all;
+
+	/* different durations for different transition animations */
+	transition-duration: 1s;
+	/* transition-duration: 1s, 2s, 4s; */
+
+	/* different durations for delays, too */
+	/* transition-delay: 2s; */
+	transition-timing-function: linear;
+}
+
+/* transitions require a trigger, like a focus or hover event */
+.box:hover {
+	background: red;
+	border-radius: 50%;
+	transform: rotateY(180deg);
+}
+
+.box:active {
+	/* triggered when we click and hold*/
+	/* background: blue; */
 }
